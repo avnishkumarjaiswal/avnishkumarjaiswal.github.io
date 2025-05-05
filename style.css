@@ -1,0 +1,705 @@
+:root {
+    --primary-color: #FB6107; /* Orange Pantone */ 
+    --secondary-color: #E03616; /* Chili Red */
+    --accent-color: #f5eee5; /* Very Light Purple/Lavender */
+    --accent-dark: #e7cabe; /* Slightly Darker Lavender */
+    --background-color: #fcf8f7; /* Off-white with purple tint */
+    --text-color: #333;
+    --heading-color: #212121; /* Darker heading */
+    --light-text-color: #f1f1f1; /* For dark backgrounds */
+    --white-color: #ffffff;
+    --border-radius: 8px;
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    --transition-speed: 0.3s;
+    --font-primary: 'Poppins', sans-serif;
+    --font-secondary: 'Playfair Display', serif;
+}
+
+/* Basic Reset & Body Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-primary);
+    line-height: 1.7;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--heading-color);
+    margin-bottom: 0.8rem;
+}
+
+h1 {
+    font-family: var(--font-secondary);
+    font-weight: 700;
+}
+
+h2.section-title {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    text-align: center;
+    margin-top: 4rem;
+    margin-bottom: 2.5rem;
+    position: relative;
+    padding-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h2.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 4px;
+    background-color: var(--secondary-color);
+    border-radius: 2px;
+}
+
+.icon-left {
+    margin-right: 0.8rem;
+    color: var(--secondary-color);
+}
+
+a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: color var(--transition-speed) ease;
+}
+
+a:hover {
+    color: var(--primary-color);
+    text-decoration: none; /* Often prefer no underline on hover for modern look */
+}
+
+ul {
+    list-style: none; /* Remove default bullets globally */
+    padding-left: 0;
+}
+
+/* Card Style */
+.card {
+    background: var(--white-color);
+    padding: 1.5rem 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    margin-bottom: 1.5rem;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* --- Header/Hero Section --- */
+#hero {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--light-text-color);
+    text-align: center;
+    padding: 5rem 20px 4rem;
+    position: relative;
+    overflow: hidden; /* For potential background effects */
+}
+.hero-container {
+    position: relative;
+    z-index: 2;
+     display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+}
+
+#hero .profile-pic {
+    width: 180px; /* Adjusted size */
+    height: 180px;
+    object-fit: cover; /* Ensures the image covers the area */
+    border-radius: 50%;
+    border: 5px solid rgba(255, 255, 255, 0.8);
+    margin-bottom: 1.5rem;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+}
+
+#hero h1 {
+    color: var(--white-color);
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+#hero h2 {
+    color: var(--accent-color);
+    font-weight: 400;
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    border-bottom: none;
+}
+
+#hero .tagline {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--accent-dark);
+    font-weight: 300;
+}
+
+#hero .location {
+    margin-bottom: 2rem;
+    color: var(--accent-dark);
+    font-size: 1rem;
+}
+#hero .location i {
+    margin-right: 8px;
+}
+
+.hero-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+}
+
+#hero .cta-button {
+    display: inline-flex; /* Use flex for icon alignment */
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--white-color);
+    color: var(--primary-color);
+    padding: 12px 25px;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, transform var(--transition-speed) ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#hero .cta-button:hover {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    text-decoration: none;
+    transform: translateY(-2px);
+}
+
+#hero .cta-button.secondary {
+    background-color: transparent;
+    border: 2px solid var(--accent-dark);
+    color: var(--accent-dark);
+}
+#hero .cta-button.secondary:hover {
+    background-color: var(--accent-dark);
+    color: var(--primary-color);
+}
+
+
+#hero .social-link {
+    font-size: 1.8em;
+    color: var(--accent-color);
+    transition: color var(--transition-speed) ease, transform var(--transition-speed) ease;
+    padding: 5px; /* Add padding for easier clicking */
+}
+#hero .social-link:hover {
+    color: var(--white-color);
+    transform: scale(1.1);
+    text-decoration: none;
+}
+
+/* --- Navigation --- */
+#mainNav {
+    background: var(--white-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    padding: 0.5rem 0;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: flex-end; /* Align items to the right initially */
+    align-items: center;
+    position: relative;
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    gap: 0.8rem; /* Adjust gap */
+    margin: 0; /* Reset margin */
+}
+
+.nav-list a {
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 0.8rem 1rem;
+    border-radius: var(--border-radius);
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.nav-list a:hover,
+.nav-list a.active-link { /* Added active-link class */
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+}
+
+.menu-toggle {
+    display: none; /* Hidden by default */
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    cursor: pointer;
+    padding: 0.8rem 1rem;
+    margin-left: auto; /* Push to the left */
+}
+.menu-toggle i {
+    margin-right: 5px;
+}
+
+
+/* --- Main Content Area --- */
+main {
+    padding-top: 2rem; /* Add space below sticky nav */
+}
+.main-content { /* Add specific container for main sections if needed */
+     padding: 0;
+}
+
+.content-section {
+    padding: 2rem 0; /* Vertical spacing between sections */
+}
+
+/* --- About Section --- */
+#about .card {
+    padding: 2rem 2.5rem;
+}
+#about p {
+    margin-bottom: 1rem;
+}
+#about strong {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+
+/* --- Experience Section --- */
+.job {
+    /* Using card style now */
+    border-bottom: none; /* Remove dashed border */
+    margin-bottom: 2rem; /* Increased space */
+}
+
+.job h3 {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+}
+
+.job .company {
+    font-style: normal; /* Remove italic */
+    font-weight: 600;
+    color: var(--secondary-color);
+    margin-bottom: 0.3rem;
+}
+
+.job .duration {
+    font-size: 0.95rem;
+    color: #757575; /* Grey */
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.job ul {
+    padding-left: 0; /* Reset padding */
+}
+.job ul li {
+     margin-bottom: 0.7rem;
+     position: relative;
+     padding-left: 1.5rem; /* Space for icon */
+}
+.job ul li::before {
+    content: "\f105"; /* Font Awesome angle-right */
+    font-family: "Font Awesome 6 Free"; /* Ensure correct family */
+    font-weight: 900; /* Required for solid icons */
+    position: absolute;
+    left: 0;
+    top: 4px; /* Adjust alignment */
+    color: var(--secondary-color);
+    opacity: 0.8;
+}
+
+.job ul li strong { /* Highlight achievements */
+    color: var(--primary-color);
+    font-weight: 600; /* Make bold */
+}
+
+/* --- Projects Section --- */
+.project {
+    /* Using card style now */
+    display: flex;
+    gap: 1.5rem; /* Adjusted space */
+    align-items: flex-start;
+    margin-bottom: 2rem; /* Space between project cards */
+}
+
+.project-image {
+    width: 80px; /* Smaller image */
+    height: 80px;
+    object-fit: contain; /* Use contain to see whole logo/icon */
+    border: none; /* Remove border */
+    border-radius: var(--border-radius); /* Match card radius */
+    background-color: var(--accent-color); /* Light background for logos/icons */
+    padding: 10px; /* Padding around logo/icon */
+    flex-shrink: 0;
+    margin-top: 5px; /* Align better with text */
+}
+
+.project-details {
+    flex-grow: 1; /* Allow text to take remaining space */
+}
+
+.project h3 {
+     margin-top: 0;
+     color: var(--primary-color);
+     font-size: 1.3rem;
+}
+
+.project p {
+    margin-bottom: 0.8rem;
+}
+.project strong {
+    font-weight: 600;
+    color: var(--heading-color); /* Using heading color for emphasis */
+}
+
+/* --- Skills Section --- */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Adjusted minmax */
+    gap: 1.5rem;
+}
+
+.skill-category h3 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+}
+.skill-category h3 i { /* Ensure icon color */
+    color: var(--secondary-color);
+}
+
+.skill-category ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    /* Let items wrap naturally */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px; /* Add gap between skill pills */
+}
+.skill-category ul li {
+    margin-bottom: 0; /* Remove bottom margin as gap handles spacing */
+    background-color: var(--accent-color);
+    padding: 5px 12px;
+    border-radius: 15px; /* Pill shape */
+    display: inline-block;
+    margin-right: 0; /* Remove right margin */
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    font-weight: 500;
+    transition: background-color var(--transition-speed);
+}
+.skill-category ul li:hover {
+    background-color: var(--accent-dark);
+}
+
+/* --- Education & Certs Section --- */
+.edu-cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.education h3, .certifications h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+}
+.education h3 i, .certifications h3 i { /* Ensure icon color */
+    color: var(--secondary-color);
+}
+
+.education p {
+    margin-bottom: 0.5rem;
+}
+.education p i {
+    margin-right: 8px;
+    color: var(--secondary-color); /* Make calendar icon purple */
+    width: 15px; /* Align icons */
+    text-align: center;
+}
+.education p i.fa-calendar-check {
+    /* Keep calendar icon same color */
+}
+
+.certifications ul {
+     list-style: none;
+     padding-left: 0;
+}
+.certifications ul li {
+    margin-bottom: 0.7rem;
+    position: relative;
+    padding-left: 1.5rem;
+}
+.certifications ul li::before {
+    content: "\f0a9"; /* Font Awesome hand-point-right */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    top: 4px;
+    color: var(--secondary-color);
+    opacity: 0.8;
+}
+
+/* --- Contact Section --- */
+.contact-details {
+    text-align: center; /* Center contact info */
+    padding: 2rem;
+}
+.contact-details p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.contact-list {
+    list-style: none;
+    padding: 0;
+    display: inline-flex; /* Use inline-flex for horizontal layout */
+    flex-direction: column; /* Stack vertically */
+    align-items: flex-start; /* Align text left */
+    gap: 1rem; /* Space between items */
+}
+
+.contact-list li {
+    display: flex;
+    align-items: center;
+    font-size: 1.05rem;
+}
+.contact-list li i {
+    margin-right: 1rem;
+    color: var(--primary-color);
+    width: 25px;
+    text-align: center;
+    font-size: 1.2em;
+}
+.contact-list li a {
+    color: var(--secondary-color);
+    font-weight: 500;
+}
+.contact-list li a:hover {
+    color: var(--primary-color);
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    margin-top: 4rem;
+    padding: 2rem;
+    background-color: var(--heading-color);
+    color: var(--accent-dark);
+    font-size: 0.9rem;
+}
+footer p {
+    margin: 0;
+}
+
+/* --- Go Top Button --- */
+#goTopBtn {
+    /* display: none; // Managed by JS */
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 999;
+    border: none;
+    outline: none;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    cursor: pointer;
+    padding: 0; /* Reset padding */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.4em; /* Increased icon size */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: opacity 0.4s ease, background-color 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    display: flex; /* Center icon */
+    justify-content: center;
+    align-items: center;
+    visibility: hidden; /* Start hidden */
+}
+
+#goTopBtn.show {
+    opacity: 0.8; /* Slightly transparent */
+    visibility: visible; /* Make visible */
+}
+
+#goTopBtn:hover {
+    background-color: var(--secondary-color);
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* --- Animations --- */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 992px) { /* Adjust breakpoint for skills grid */
+     .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* Allow more flex */
+    }
+}
+
+@media (max-width: 768px) {
+    h2.section-title {
+        font-size: 1.8rem;
+    }
+    #hero h1 { font-size: 2.5rem; }
+    #hero h2 { font-size: 1.3rem; }
+    #hero .profile-pic { width: 150px; height: 150px; }
+
+    .menu-toggle {
+        display: block; /* Show hamburger menu */
+    }
+
+    .nav-container {
+         flex-wrap: wrap;
+         justify-content: space-between; /* Pushes toggle right */
+    }
+
+    .nav-list {
+        display: none; /* Hide nav list by default */
+        flex-direction: column;
+        width: 100%;
+        background: var(--white-color);
+        padding: 1rem 0;
+        order: 1; /* Ensure it appears below toggle */
+        border-top: 1px solid var(--accent-dark);
+        box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+        max-height: 0; /* For smooth transition */
+        overflow: hidden; /* For smooth transition */
+        transition: max-height 0.5s ease-in-out, padding 0.5s ease;
+    }
+
+    .nav-list.active {
+        display: flex; /* Needed for flex properties */
+        max-height: 500px; /* Or large enough height */
+        padding: 1rem 0;
+    }
+
+    .nav-list li {
+        width: 100%;
+        text-align: center;
+    }
+    .nav-list a {
+        display: block;
+        padding: 0.8rem 1rem;
+        border-radius: 0;
+        border-bottom: 1px solid var(--accent-color);
+    }
+    .nav-list li:last-child a { border-bottom: none; }
+
+
+    .project {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .project-image {
+        margin-bottom: 1rem;
+        width: 70px; /* Adjust size */
+        height: 70px;
+    }
+    .project-details {
+        text-align: left; /* Keep text left-aligned */
+    }
+
+    .skills-grid, .edu-cert-grid {
+        grid-template-columns: 1fr; /* Stack columns */
+    }
+
+     .contact-list {
+        align-items: center; /* Center items on mobile */
+        padding-left: 10px; /* Add some padding */
+     }
+     .contact-list li {
+        text-align: left; /* Keep text left aligned */
+        align-items: center;
+        width: 100%; /* Ensure full width for alignment */
+        justify-content: center; /* Center content within li */
+     }
+     .contact-list li i {
+         margin-right: 0.5rem; /* Reduce gap */
+     }
+
+     #goTopBtn {
+         width: 45px;
+         height: 45px;
+         font-size: 1.2em;
+         bottom: 20px;
+         right: 20px;
+     }
+}
+
+/* Add placeholder styles for generic images if needed */
+img[src^="generic-"] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem; /* Make icons larger inside the box */
+    color: var(--primary-color);
+    background-color: var(--accent-color); /* Ensure background */
+}
+/* Optional: Use Font Awesome icons as background for generic images */
+img[src="generic-cloud-telecom.png"]::before { content: '\f0c2 \f095'; font-family: "Font Awesome 6 Free"; font-weight: 900; }
+img[src="generic-europe-uk.png"]::before { content: '\f7a2 \f10a'; font-family: "Font Awesome 6 Free"; font-weight: 900; }
+img[src="generic-india-telecom.png"]::before { content: '\e1ff \f095'; font-family: "Font Awesome 6 Free"; font-weight: 900; }
